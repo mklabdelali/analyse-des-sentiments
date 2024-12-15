@@ -1,0 +1,238 @@
+[{
+  "_id": {
+    "$oid": "675378994d3263cfd7aa6ed1"
+  },
+  "username": "john_doe",
+  "comment": "Très satisfait du service ! Le personnel était attentif, et le suivi médical a été parfait.",
+  "language": "français",
+  "date_posted": {
+    "$date": "2024-12-02T00:00:00.000Z"
+  },
+  "service": "Dermatologie",
+  "sentiment": {
+    "label": "positif",
+    "polarity": 0.55,
+    "subjectivity": 0.72
+  }
+},
+{
+  "_id": {
+    "$oid": "675378994d3263cfd7aa6ed2"
+  },
+  "username": "jane_doe",
+  "comment": "I was disappointed by the lack of communication between the medical staff and patients. Waiting times were also too long.",
+  "language": "anglais",
+  "date_posted": {
+    "$date": "2024-12-01T00:00:00.000Z"
+  },
+  "sentiment": {
+    "label": "négatif",
+    "polarity": -0.27,
+    "subjectivity": 0.38
+  },
+  "service": "Endocrinologie"
+},
+{
+  "_id": {
+    "$oid": "675378994d3263cfd7aa6ed3"
+  },
+  "username": "ali_hassan",
+  "comment": "الخدمة رائعة والفريق الطبي محترف جدًا. أتمنى أن أعود في ظروف أفضل.",
+  "language": "arabe",
+  "date_posted": {
+    "$date": "2024-12-03T12:00:00.000Z"
+  },
+  "sentiment": {
+    "label": "positif",
+    "polarity": 0.22,
+    "subjectivity": 0.22
+  },
+  "service": "Cardiologie"
+},
+{
+  "_id": {
+    "$oid": "675378994d3263cfd7aa6ed5"
+  },
+  "username": "aloaui.mona",
+  "comment": "The hospital services were excellent overall. I especially appreciated the kindness of the nursing staff and their efficiency.",
+  "language": "anglais",
+  "sentiment": {
+    "label": "positif",
+    "polarity": 0.47,
+    "subjectivity": 0.4
+  },
+  "service": "Gynécologie obstétrique",
+  "date_posted": {
+    "$date": "2024-12-01T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "675378994d3263cfd7aa6ed6"
+  },
+  "username": "emma_brown",
+  "comment": "Je suis reconnaissante pour le niveau de soin et d'attention que j'ai reçu ici. Merci à toute l'équipe !",
+  "language": "français",
+  "date_posted": {
+    "$date": "2024-12-01T16:00:00.000Z"
+  },
+  "sentiment": {
+    "label": "neutre",
+    "polarity": 0,
+    "subjectivity": 0
+  },
+  "service": "medecine interne"
+},
+{
+  "_id": {
+    "$oid": "675378994d3263cfd7aa6ed7"
+  },
+  "username": "mohammed_kamal",
+  "comment": "المستشفى رائع لكن الأسعار مرتفعة قليلاً بالنسبة للخدمات المقدمة.",
+  "language": "arabe",
+  "date_posted": {
+    "$date": "2024-12-01T11:45:00.000Z"
+  },
+  "sentiment": {
+    "label": "neutre",
+    "polarity": 0,
+    "subjectivity": 0
+  },
+  "service": "gastro-entérologie"
+},
+{
+  "_id": {
+    "$oid": "675378994d3263cfd7aa6ed8"
+  },
+  "username": "susan_clark",
+  "comment": "Overall, I had a great experience. However, the availability of parking was a bit of an issue.",
+  "language": "anglais",
+  "date_posted": {
+    "$date": "2024-11-30T14:20:00.000Z"
+  },
+  "sentiment": {
+    "label": "positif",
+    "polarity": 0.4,
+    "subjectivity": 0.38
+  },
+  "service": "Pneumologie"
+},
+{
+  "_id": {
+    "$oid": "675378994d3263cfd7aa6ed9"
+  },
+  "username": "amina_zaidi",
+  "comment": "J'ai été bien accueillie et prise en charge rapidement. Merci beaucoup pour votre aide.",
+  "language": "français",
+  "date_posted": {
+    "$date": "2024-11-30T09:10:00.000Z"
+  },
+  "sentiment": {
+    "label": "neutre",
+    "polarity": 0,
+    "subjectivity": 0
+  },
+  "service": "Pédiatrie"
+},
+{
+  "_id": {
+    "$oid": "675378994d3263cfd7aa6eda"
+  },
+  "username": "lucas_martin",
+  "comment": "Les équipements sont modernes, et le personnel médical est compétent. Cependant, le processus d'admission peut être simplifié.",
+  "language": "français",
+  "date_posted": {
+    "$date": "2024-11-29T13:55:00.000Z"
+  },
+  "sentiment": {
+    "label": "neutre",
+    "polarity": 0,
+    "subjectivity": 0
+  },
+  "service": "Urologie"
+},
+{
+  "_id": {
+    "$oid": "67558dd2b042a0225c0da654"
+  },
+  "username": "alami.ali",
+  "comment": "le service etait professionnelle et rapide",
+  "language": "français",
+  "date_posted": {
+    "$date": "2024-12-08T12:15:14.655Z"
+  },
+  "sentiment": {
+    "label": "positif",
+    "polarity": 0.15,
+    "subjectivity": 0.35
+  },
+  "service": "Rhumatologie"
+},
+{
+  "_id": {
+    "$oid": "67581f3471fc4fc0d42da92b"
+  },
+  "username": "alami.ali",
+  "comment": "Très satisfait du service ! Le personnel était attentif, et le suivi médical a été parfait.",
+  "service": "Chirurgie cardiaque",
+  "language": "français",
+  "date_posted": {
+    "$date": "2024-12-10T11:00:04.751Z"
+  },
+  "sentiment": {
+    "label": "positif",
+    "polarity": 0.55,
+    "subjectivity": 0.72
+  }
+},
+{
+  "_id": {
+    "$oid": "6758b28d775617a0238cdea2"
+  },
+  "username": "anna_davis",
+  "comment": "le service est professionnelle et parfait",
+  "service": "Chirurgie de la main",
+  "language": "français",
+  "date_posted": {
+    "$date": "2024-12-10T21:28:45.300Z"
+  },
+  "sentiment": {
+    "label": "positif",
+    "polarity": 0.55,
+    "subjectivity": 0.55
+  }
+},
+{
+  "_id": {
+    "$oid": "675df3169cb0f5f608b7effd"
+  },
+  "username": "lotfi",
+  "comment": "ITS VERY GOOD JOB",
+  "service": "Chirurgie générale",
+  "language": "anglais",
+  "date_posted": {
+    "$date": "2024-12-14T21:05:26.758Z"
+  },
+  "sentiment": {
+    "label": "positif",
+    "polarity": 0.91,
+    "subjectivity": 0.78
+  }
+},
+{
+  "_id": {
+    "$oid": "675dffbc7221aa1be6353d20"
+  },
+  "username": "otmen",
+  "comment": "كان الطاقم الطبي محترفاً جداً ومراعياً. شعرت بأنني استُمع إليّ وتم الاهتمام بي طوال فترة إقامتي",
+  "service": "Dermatologie",
+  "language": "arabe",
+  "date_posted": {
+    "$date": "2024-12-14T21:59:24.145Z"
+  },
+  "sentiment": {
+    "label": "positif",
+    "polarity": 0.14,
+    "subjectivity": 0.14
+  }
+}]

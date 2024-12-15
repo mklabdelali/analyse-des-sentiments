@@ -1,0 +1,196 @@
+[{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ee4"
+  },
+  "nom": "Médecine générale",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ee5"
+  },
+  "nom": "Cardiologie",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ee6"
+  },
+  "nom": "Dermatologie",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ee7"
+  },
+  "nom": "Pédiatrie",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ee8"
+  },
+  "nom": "Gynécologie obstétrique",
+  "type": "Chirurgicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ee9"
+  },
+  "nom": "Chirurgie générale",
+  "type": "Chirurgicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170eea"
+  },
+  "nom": "Neurochirurgie",
+  "type": "Chirurgicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170eeb"
+  },
+  "nom": "Orthopédie",
+  "type": "Chirurgicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170eec"
+  },
+  "nom": "Ophtalmologie",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170eed"
+  },
+  "nom": "Oto-rhino-laryngologie (ORL)",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170eee"
+  },
+  "nom": "Rhumatologie",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170eef"
+  },
+  "nom": "Urologie",
+  "type": "Chirurgicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ef0"
+  },
+  "nom": "Chirurgie cardiaque",
+  "type": "Chirurgicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ef1"
+  },
+  "nom": "Chirurgie plastique et reconstructrice",
+  "type": "Chirurgicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ef2"
+  },
+  "nom": "Radiologie",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ef3"
+  },
+  "nom": "Psychiatrie",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ef4"
+  },
+  "nom": "Médecine interne",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ef5"
+  },
+  "nom": "Gastro-entérologie",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ef6"
+  },
+  "nom": "Hématologie",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ef7"
+  },
+  "nom": "Néphrologie",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ef8"
+  },
+  "nom": "Anesthésie-réanimation",
+  "type": "Chirurgicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170ef9"
+  },
+  "nom": "Chirurgie pédiatrique",
+  "type": "Chirurgicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170efa"
+  },
+  "nom": "Endocrinologie",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170efb"
+  },
+  "nom": "Infectiologie",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170efc"
+  },
+  "nom": "Médecine du sport",
+  "type": "Médicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170efd"
+  },
+  "nom": "Chirurgie de la main",
+  "type": "Chirurgicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170efe"
+  },
+  "nom": "Chirurgie thoracique",
+  "type": "Chirurgicale"
+},
+{
+  "_id": {
+    "$oid": "675814a0f2889dc666170eff"
+  },
+  "nom": "Chirurgie vasculaire",
+  "type": "Chirurgicale"
+}]

@@ -1,0 +1,193 @@
+[{
+  "_id": {
+    "$oid": "6752c27df54b0e983a989cd0"
+  },
+  "username": "alami.ali",
+  "password": "scrypt:32768:8:1$q4bGh4dc3FaClwW3$527c302d87766a032eac1425425bcc9f7556173296c6ea2567260d32a297f24993c24784cf2f6071089f88ebae3337c4269f2cfc565003766343ccec768074af",
+  "role": "patient",
+  "age": "30",
+  "first_name": "alami",
+  "last_name": "ali",
+  "gender": "Homme"
+},
+{
+  "_id": {
+    "$oid": "6752dee422a668de82d8dc82"
+  },
+  "username": "admin",
+  "password": "scrypt:32768:8:1$q4bGh4dc3FaClwW3$527c302d87766a032eac1425425bcc9f7556173296c6ea2567260d32a297f24993c24784cf2f6071089f88ebae3337c4269f2cfc565003766343ccec768074af",
+  "role": "admin"
+},
+{
+  "_id": {
+    "$oid": "6752dfbe6d70a1dbd0d26082"
+  },
+  "username": "mklabdelali",
+  "password": "scrypt:32768:8:1$1gotcRCHYkdwFXKx$94da0c4b9fce6bbb5a8d7da71a7eff70ecd77ec06403f265eaa1fad8e98c20f24f3e9edfb79d918a4761dff6ff8934c023deeb07be9fca5d53290954f5a158f6",
+  "role": "admin"
+},
+{
+  "_id": {
+    "$oid": "67536e264d3263cfd7aa6ec6"
+  },
+  "username": "john_doe",
+  "first_name": "John",
+  "last_name": "Doe",
+  "age": 30,
+  "gender": "Homme",
+  "role": "patient",
+  "password": "scrypt:32768:8:1$q4bGh4dc3FaClwW3$527c302d87766a032eac1425425bcc9f7556173296c6ea2567260d32a297f24993c24784cf2f6071089f88ebae3337c4269f2cfc565003766343ccec768074af"
+},
+{
+  "_id": {
+    "$oid": "67536e264d3263cfd7aa6ec7"
+  },
+  "username": "ali_hassan",
+  "first_name": "hassan",
+  "last_name": "ali",
+  "age": 25,
+  "gender": "Femme",
+  "role": "patient",
+  "password": "scrypt:32768:8:1$q4bGh4dc3FaClwW3$527c302d87766a032eac1425425bcc9f7556173296c6ea2567260d32a297f24993c24784cf2f6071089f88ebae3337c4269f2cfc565003766343ccec768074af"
+},
+{
+  "_id": {
+    "$oid": "67536e264d3263cfd7aa6ec8"
+  },
+  "username": "jane_doe",
+  "first_name": "jane",
+  "last_name": "doe",
+  "age": 45,
+  "gender": "Homme",
+  "role": "patient",
+  "password": "scrypt:32768:8:1$q4bGh4dc3FaClwW3$527c302d87766a032eac1425425bcc9f7556173296c6ea2567260d32a297f24993c24784cf2f6071089f88ebae3337c4269f2cfc565003766343ccec768074af"
+},
+{
+  "_id": {
+    "$oid": "67536e264d3263cfd7aa6ec9"
+  },
+  "username": "lotfi",
+  "first_name": "amine",
+  "last_name": "lotfi",
+  "age": 35,
+  "gender": "Homme",
+  "role": "patient",
+  "password": "scrypt:32768:8:1$q4bGh4dc3FaClwW3$527c302d87766a032eac1425425bcc9f7556173296c6ea2567260d32a297f24993c24784cf2f6071089f88ebae3337c4269f2cfc565003766343ccec768074af"
+},
+{
+  "_id": {
+    "$oid": "67536e264d3263cfd7aa6eca"
+  },
+  "username": "michael_jones",
+  "first_name": "Michael",
+  "last_name": "Jones",
+  "age": 50,
+  "gender": "Homme",
+  "role": "patient",
+  "password": "scrypt:32768:8:1$q4bGh4dc3FaClwW3$527c302d87766a032eac1425425bcc9f7556173296c6ea2567260d32a297f24993c24784cf2f6071089f88ebae3337c4269f2cfc565003766343ccec768074af"
+},
+{
+  "_id": {
+    "$oid": "67536e264d3263cfd7aa6ecb"
+  },
+  "username": "sarah_lee",
+  "first_name": "Sarah",
+  "last_name": "Lee",
+  "age": 29,
+  "gender": "Femme",
+  "role": "patient",
+  "password": "scrypt:32768:8:1$q4bGh4dc3FaClwW3$527c302d87766a032eac1425425bcc9f7556173296c6ea2567260d32a297f24993c24784cf2f6071089f88ebae3337c4269f2cfc565003766343ccec768074af"
+},
+{
+  "_id": {
+    "$oid": "67536e264d3263cfd7aa6ecc"
+  },
+  "username": "otmen",
+  "first_name": "otmen",
+  "last_name": "haoulani",
+  "age": 30,
+  "gender": "Homme",
+  "role": "patient",
+  "password": "scrypt:32768:8:1$q4bGh4dc3FaClwW3$527c302d87766a032eac1425425bcc9f7556173296c6ea2567260d32a297f24993c24784cf2f6071089f88ebae3337c4269f2cfc565003766343ccec768074af"
+},
+{
+  "_id": {
+    "$oid": "67536e264d3263cfd7aa6ecd"
+  },
+  "username": "aloaui.mona",
+  "first_name": "mona",
+  "last_name": "alaoui",
+  "age": 32,
+  "gender": "Femme",
+  "role": "patient",
+  "password": "scrypt:32768:8:1$q4bGh4dc3FaClwW3$527c302d87766a032eac1425425bcc9f7556173296c6ea2567260d32a297f24993c24784cf2f6071089f88ebae3337c4269f2cfc565003766343ccec768074af"
+},
+{
+  "_id": {
+    "$oid": "67536e264d3263cfd7aa6ece"
+  },
+  "username": "charles_taylor",
+  "first_name": "Charles",
+  "last_name": "Taylor",
+  "age": 60,
+  "gender": "Homme",
+  "role": "patient",
+  "password": "scrypt:32768:8:1$q4bGh4dc3FaClwW3$527c302d87766a032eac1425425bcc9f7556173296c6ea2567260d32a297f24993c24784cf2f6071089f88ebae3337c4269f2cfc565003766343ccec768074af"
+},
+{
+  "_id": {
+    "$oid": "67536e264d3263cfd7aa6ecf"
+  },
+  "username": "anna_davis",
+  "first_name": "Anna",
+  "last_name": "Davis",
+  "age": 22,
+  "gender": "Femme",
+  "role": "patient",
+  "password": "scrypt:32768:8:1$q4bGh4dc3FaClwW3$527c302d87766a032eac1425425bcc9f7556173296c6ea2567260d32a297f24993c24784cf2f6071089f88ebae3337c4269f2cfc565003766343ccec768074af"
+},
+{
+  "_id": {
+    "$oid": "675a18b7a0e91e59f31d3a7a"
+  },
+  "username": "idriss.driss",
+  "password": "password",
+  "age": "30",
+  "first_name": "driss",
+  "last_name": "idrissi",
+  "gender": "Homme",
+  "role": "patient"
+},
+{
+  "_id": {
+    "$oid": "675a1b15dacf35ea1e134225"
+  },
+  "username": "ibrahimi.brahim",
+  "password": "password",
+  "age": "55",
+  "first_name": "brahim",
+  "last_name": "ibrahimi",
+  "gender": "Homme",
+  "role": "patient"
+},
+{
+  "_id": {
+    "$oid": "675a1efba92ac3d585d53c18"
+  },
+  "first_name": "Abdelali",
+  "last_name": "MOUTAOUAKIL",
+  "age": "5",
+  "gender": "Homme"
+},
+{
+  "_id": {
+    "$oid": "675dae42cf22f8cdd8a70b14"
+  },
+  "username": "jaafari.abde",
+  "password": "scrypt:32768:8:1$UGf3ekEsQpLKL1zY$3f488c971d715f8d88aa46a6fa57f76bf34e9d954e0945496c4dcb2254a3a44f326fd75ef1f81f7eb00c286f511a2720f0c67bb56e2f32c002818e8006adea0a",
+  "age": "16",
+  "first_name": "abdelhak",
+  "last_name": "jaafari",
+  "gender": "Homme",
+  "role": "patient"
+}]

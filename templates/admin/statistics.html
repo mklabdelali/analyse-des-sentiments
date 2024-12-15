@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistiques</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="text-align: center;">
+  <h1>Statistiques</h1>
+
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Répartition des Sentiments par Tranche d'âge</h5>
+          <canvas id="ageSentimentChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+           <!-- Diagramme 2 : Sentiment par Service -->
+          <h5 class="card-title">Répartition des Sentiments par Service</h5>
+          <canvas id="sentimentServiceChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="row justify-content-center">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+           <!-- Diagramme 2 : Sentiment par Service -->
+           <div class="card-body d-flex flex-column align-items-center">
+          <h5 class="card-title">Répartition des Sentiments par Service, Langage et Tranche d'âge</h5>
+          <canvas id="sentimentServiceLanguageAgeChart" width="400" height="300"></canvas>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <script>
+    async function loadStatistics() {
+      const response = await fetch('/statistics');
+      const data = await response.json();
+
+      // Diagramme 1 : Âge et Sentiment
+      const ageSentimentData = data.age_sentiment_data;
+      const ageGroups = Array.from(new Set(ageSentimentData.map(item => item.age))).sort((a, b) => a - b);
+      const sentiments = ["positif", "négatif", "neutre"];
+      const datasetsAgeSentiment = sentiments.map(sentiment => ({
+        label: sentiment.charAt(0).toUpperCase() + sentiment.slice(1),
+        data: ageGroups.map(age => {
+          const match = ageSentimentData.find(item => item.age === age && item.sentiment === sentiment);
+          return match ? match.count : 0;
+        }),
+        backgroundColor: sentiment === "positif" ? "rgba(75, 192, 192, 0.7)" :
+                        sentiment === "négatif" ? "rgba(255, 99, 132, 0.7)" :
+                        "rgba(201, 203, 207, 0.7)"
+      }));
+
+      new Chart(document.getElementById('ageSentimentChart'), {
+        type: 'bar',
+        data: {
+          labels: ageGroups,
+          datasets: datasetsAgeSentiment
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { position: 'top' } },
+          scales: { y: { title: { display: true, text: 'Nombre de Sentiments' } } }
+        }
+      });
+
+      // Diagramme 2 : Sentiment par Service
+      const sentimentServiceData = data.sentiment_service_data;
+      const services = Array.from(new Set(sentimentServiceData.map(item => item.service)));
+      const datasetsSentimentService = sentiments.map(sentiment => ({
+        label: sentiment.charAt(0).toUpperCase() + sentiment.slice(1),
+        data: services.map(service => {
+          const match = sentimentServiceData.find(item => item.service === service && item.sentiment === sentiment);
+          return match ? match.count : 0;
+        }),
+        backgroundColor: sentiment === "positif" ? "rgba(75, 192, 192, 0.7)" :
+                        sentiment === "négatif" ? "rgba(255, 99, 132, 0.7)" :
+                        "rgba(201, 203, 207, 0.7)"
+      }));
+
+      new Chart(document.getElementById('sentimentServiceChart'), {
+        type: 'bar',
+        data: {
+          labels: services,
+          datasets: datasetsSentimentService
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          plugins: { legend: { position: 'top' } },
+          scales: { x: { stacked: true }, y: { stacked: true } }
+        }
+      });
+
+      // Diagramme 3 : Sentiment par Service, Langage et Âge
+      const sentimentServiceLanguageAgeData = data.sentiment_service_language_age_data;
+      const groupedData = {};
+      sentimentServiceLanguageAgeData.forEach(item => {
+        if (!groupedData[item.service]) {
+          groupedData[item.service] = [];
+        }
+        groupedData[item.service].push(item);
+      });
+
+      const serviceLabels = Object.keys(groupedData);
+      const languageDatasets = ["anglais", "français", "arabe"].map(lang => ({
+        label: lang,
+        data: serviceLabels.map(service => {
+          const match = groupedData[service].find(item => item.language === lang);
+          return match ? match.count : 0;
+        }),
+        backgroundColor: lang === "anglais" ? "rgba(54, 162, 235, 0.7)" :
+                         lang === "français" ? "rgba(255, 205, 86, 0.7)" :
+                         "rgba(75, 192, 192, 0.7)"
+      }));
+
+      new Chart(document.getElementById('sentimentServiceLanguageAgeChart'), {
+        type: 'bar',
+        data: {
+          labels: serviceLabels,
+          datasets: languageDatasets
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { position: 'top' } },
+          scales: { y: { stacked: true }, x: { title: { display: true, text: 'Services' } } }
+        }
+      });
+    }
+
+    loadStatistics();
+  </script>
+</body>
+</html>
+{% endblock %}

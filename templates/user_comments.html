@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Mes Commentaires{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+
+  <!-- Alertes pour les messages flash -->
+  {% with messages = get_flashed_messages(with_categories=True) %}
+  {% if messages %}
+    <div class="container">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% endwith %}
+
+  <!-- Liste des commentaires -->
+  {% if comments %}
+    <div class="card shadow">
+      <div class="card-header bg-primary text-white">
+        <h3>Mes Commentaires</h3>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          {% for comment in comments %}
+          <li class="list-group-item">
+            <h5 class="mb-1">Commentaire #{{ loop.index }} :<small > {{ comment.service }}</small></h5> 
+            <h6 class="mb-1"></h6>
+            <p class="mb-1">{{ comment.comment }}</p>
+            <small class="text-muted">Posté le : {{ comment.date_posted }}</small>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% else %}
+    <div class="alert alert-info text-center">
+      Aucun commentaire trouvé.
+    </div>
+  {% endif %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

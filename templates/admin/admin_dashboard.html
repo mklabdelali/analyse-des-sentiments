@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+  
+
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+<form method="get" action="" class="mb-4">
+  <div class="text-center">
+  <div class="row" >
+    <!-- Filtrer par service -->
+    <div class="col-md-4">
+      <select name="service" class="form-select">
+        <option value="">Tous les services</option>
+        {% for service in services %}
+        <option value="{{ service }}" {% if service == service_filter %}selected{% endif %}>{{ service }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Filtrer par sexe -->
+    <div class="col-md-4">
+      <select name="gender" class="form-select">
+        <option value="">Tous les sexes</option>
+        <option value="Homme" {% if gender_filter == "Homme" %}selected{% endif %}>Homme</option>
+        <option value="Femme" {% if gender_filter == "Femme" %}selected{% endif %}>Femme</option>
+      </select>
+    </div>
+
+    <!-- Filtrer par date de publication -->
+    <div class="col-md-4">
+      <input type="date" name="date_posted" class="form-control" value="{{ selected_date }}">
+    </div>
+
+
+  </div>
+</div>
+</form>
+<div class="container mt-5">
+  <h1 class="text-center">Tableau de Bord Administrateur</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nom_Prénom</th>
+        <th>Âge</th>
+        <th>Sexe</th>
+        <th>Service</th>
+        <th>Commentaires</th>
+        <th>Analyse_sentiments</th>
+        <th>Emotions</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      {% for patient in patients %}
+      {% for comment in patient.comments %}
+      <tr data-patient-id="{{ comment._id }}">
+        <td>{{ patient.last_name }} {{ patient.first_name }}</td>
+        <td>{{ patient.age }}</td>
+        <td>{{ patient.gender }}</td>
+        <td>
+          
+            {{ comment.service }}
+         
+        </td>
+        <td data-comment-text="{{ comment.comment }}" data-langage-text="{{ comment.language }}">
+
+              {{ comment.comment }}
+              <br>
+              <small class="text-muted">Posté le : {{ comment.date_posted }}</small>
+
+         
+        </td>
+        <td> {% if comment.sentiment.label %}
+              {{ comment.sentiment.label  }}
+            <br>
+           
+           
+          Polarity : {{ comment.sentiment.polarity | round(2)}} <br>
+          Subjectivity : {{ comment.sentiment.subjectivity | round(2)}}
+          {% endif %}
+        </td>
+        <td id="emotion-{{ comment._id }}">
+            <div >
+              <script>
+                document.addEventListener("DOMContentLoaded", function() {
+
+                      (function() {
+                        const elementId = "emotion-{{ comment._id }}";
+                        const sentiment = "{{ comment.sentiment.label | lower }}"; 
+                        
+                        const emotionMap = {
+                          positif: "😊",
+                          négatif: "😞",
+                          neutre: "😐"
+                        };
+              
+                        const emotionIcon = document.createElement("div");
+                        emotionIcon.textContent = emotionMap[sentiment] || ""; // Emoticon par défaut : 🤔
+                        emotionIcon.style.fontSize = "50px";
+              
+                        // Ajout du div contenant l'icône de l'émotion dans le DOM
+                        const emotionContainer = document.getElementById(elementId);
+                        if (emotionContainer) {
+                          emotionContainer.appendChild(emotionIcon);
+                        }
+                      })();
+                    
+                });
+              </script>
+            </div>
+        </td>
+      </tr>
+      {% endfor %}
+      {% endfor %}
+    </tbody>
+    
+  </table>
+
+  <!-- Bouton d'analyse et d'enregistrement -->
+  <div class="text-center my-4">
+    <button id="analyzeAndSaveAll" class="btn btn-primary">
+      Analyser et Enregistrer tous les commentaires
+    </button>
+  </div>
+  
+</div>
+
+
+<div class="text-center">
+  <nav aria-label="Pagination" >
+    <ul class="pagination">
+      {% if page > 1 %}
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('admin_dashboard', page=page-1, per_page=per_page, service=service_filter, gender=gender_filter, date_posted=date_filter) }}">Précédent</a>
+      </li>
+      {% endif %}
+      <li class="page-item">
+        <span class="page-link">Page {{ page }}</span>
+      </li>
+      {% if total_patients > page * per_page %}
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('admin_dashboard', page=page+1, per_page=per_page, service=service_filter, gender=gender_filter, date_posted=date_filter) }}">Suivant</a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+  <br>
+</div>
+
+<script>
+  document.getElementById("analyzeAndSaveAll").addEventListener("click", async function () {
+    const comments = [];
+    let globalIndex = 0;
+
+    // Récupérer les commentaires et leurs IDs associés
+    document.querySelectorAll("tr[data-patient-id]").forEach((row) => {
+      const patientId = row.getAttribute("data-patient-id");
+      console.log("comment id "+patientId);
+      
+      row.querySelectorAll("td[data-comment-text]").forEach((commentCell, index) => {
+        const commentText = commentCell.getAttribute("data-comment-text");
+        const language = commentCell.getAttribute("data-langage-text");
+        if (commentText) {
+           comments.push({ patientId, index: globalIndex, commentText,language });
+                console.log(`Index ${globalIndex} - Commentaire : ${commentText}- Language : ${language}`);
+                globalIndex++; // Incrémente le compteur global
+        }
+      });
+    });
+  
+    if (comments.length === 0) {
+      alert("Aucun commentaire à analyser.");
+      return;
+    }
+  
+    // Envoyer les données au serveur pour analyse
+    const response = await fetch("{{ url_for('analyze_all_sentiments') }}", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ comments }),
+    });
+  
+    const result = await response.json();
+    if (response.ok && result.success) {
+      // Mettre à jour les émotions dans l'interface utilisateur
+      alert("Analyse terminée et résultats enregistrés !");
+      window.location.href = "{{ url_for('admin_dashboard') }}";
+    } else {
+      alert("Erreur lors de l'analyse et de l'enregistrement.");
+    }
+  });
+  </script>
+  
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Soumission automatique lors du changement de service
+      const serviceSelect = document.querySelector('select[name="service"]');
+      if (serviceSelect) {
+        serviceSelect.addEventListener("change", function () {
+          this.form.submit(); // Soumet le formulaire
+          
+          
+        });
+      }
+  
+      // Soumission automatique lors du changement de sexe
+      const genderSelect = document.querySelector('select[name="gender"]');
+      if (genderSelect) {
+        genderSelect.addEventListener("change", function () {
+          this.form.submit(); // Soumet le formulaire
+          
+        });
+      }
+  
+      // Soumission automatique lors du changement de date
+      const dateInput = document.querySelector('input[name="date_posted"]');
+      if (dateInput) {
+        dateInput.addEventListener("change", function () {
+          this.form.submit(); // Soumet le formulaire
+        });
+      }
+    });
+  </script>
+  
+  
+
+
+{% endblock %}

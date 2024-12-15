@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Statistiques des Sentiments{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1 class="text-center">Statistiques des Sentiments</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Répartition des Sentiments</h3>
+        <canvas id="sentimentChart"></canvas>
+      </div>
+      <div class="col-md-6">
+        <h3>Évolution des Sentiments dans le Temps</h3>
+        <canvas id="timeSentimentChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Exemple de données pour la répartition des sentiments
+    const sentimentData = {
+      labels: ['Positifs', 'Négatifs', 'Neutres'],
+      datasets: [{
+        data: [120, 50, 30],  // Exemple de données, à remplacer par les données réelles
+        backgroundColor: ['#28a745', '#dc3545', '#6c757d'],
+        hoverOffset: 4
+      }]
+    };
+
+    const sentimentConfig = {
+      type: 'pie',
+      data: sentimentData,
+    };
+
+    new Chart(document.getElementById('sentimentChart'), sentimentConfig);
+
+    // Exemple de données pour l'évolution des sentiments dans le temps
+    const timeSentimentData = {
+      labels: ['2024-12-01', '2024-12-02', '2024-12-03', '2024-12-04'],  // Dates à remplacer par des dates réelles
+      datasets: [{
+        label: 'Sentiment Moyen',
+        data: [0.8, 0.7, 0.5, 0.6],  // Valeurs de sentiment moyen
+        borderColor: '#007bff',
+        fill: false,
+      }]
+    };
+
+    const timeSentimentConfig = {
+      type: 'line',
+      data: timeSentimentData,
+    };
+
+    new Chart(document.getElementById('timeSentimentChart'), timeSentimentConfig);
+  </script>
+
+{% endblock %}
