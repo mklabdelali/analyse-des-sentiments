@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, flash, session
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
+#api analyse des entiments
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from pymongo import MongoClient
 from datetime import datetime, timedelta
